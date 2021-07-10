@@ -1,47 +1,40 @@
 {
-  "name": "typescript-node-starter",
-  "version": "0.0.4",
-  "description": "Bare bones project with all that you need to start a node app",
-  "main": "dist/index.js",
-  "author": "Hernan Rajchert <hrajchert@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "start": "tsns run",
-    "test": "run-s build-and:test",
-    "tdd": "run-p watch:*",
-    "build": "tsns build",
-    "docker:build": "docker build -t ${npm_package_name}:${npm_package_version} .",
-    "docker:run": "docker run --rm ${npm_package_name}:${npm_package_version}",
-    "commitmsg": "validate-commit-msg",
-    "precommit": "run-s lint:* build",
-    "prepush": "run-s build-and:test",
-    "postinstall": "npm run -s build && tsns init",
-    "lint:ts": "tslint --project tsconfig.json",
-    "lint-and-fix:-ts": "tslint --project tsconfig.json --fix",
-    "build-and:test": "run-s build test-once",
-    "build-and:start": "run-s build start",
-    "watch:ts": "tsc -w",
-    "watch:test": "mocha dist/**/*.test.js -w --colors --inspect --growl",
-    "test-once": "mocha dist/**/*.test.js --inspect --colors",
-    "contributors-add": "all-contributors add",
-    "contributors-generate": "all-contributors generate"
-  },
-  "dependencies": {
-    "tsns": "0.0.18",
-    "typescript": "3.6.4"
-  },
-  "devDependencies": {
-    "@types/chai": "4.1.4",
-    "@types/mocha": "5.2.5",
-    "@types/node": "^12.12.5",
-    "all-contributors-cli": "^6.4.0",
-    "chai": "4.1.2",
-    "husky": "0.14.3",
-    "mocha": "5.2.0",
-    "npm-run-all": "4.1.3",
-    "sinon": "6.1.5",
-    "tslint": "5.11.0",
-    "tslint-config-acamica": "2.0.0",
-    "validate-commit-msg": "2.14.0"
-  }
+    "name": "typescript-node-starter",
+    "version": "0.1.0",
+    "description": "Bare bones project with all that you need to start a node app",
+    "main": "dist/index.js",
+    "author": "Hernan Rajchert <hrajchert@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "node dist/index.js",
+        "dev": "ts-node src/index.ts",
+        "test": "jest",
+        "tdd": "jest --watch",
+        "build": "tsc -b",
+        "docker:build": "docker build -t ${npm_package_name}:${npm_package_version} .",
+        "docker:run": "docker run --rm ${npm_package_name}:${npm_package_version}",
+        "commitmsg": "validate-commit-msg",
+        "precommit": "run-s lint:* build",
+        "prepush": "run-s build-and:test",
+        "postinstall": "npm run -s build && tsns init",
+        "watch:ts": "tsc -w",
+        "contributors-add": "all-contributors add",
+        "contributors-generate": "all-contributors generate"
+    },
+    "dependencies": {
+        "tsns": "0.0.18",
+        "typescript": "^4.3.5"
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.24",
+        "@types/node": "^16.3.1",
+        "all-contributors-cli": "^6.4.0",
+        "husky": "0.14.3",
+        "jest": "^27.0.6",
+        "npm-run-all": "4.1.3",
+        "prettier": "^2.3.2",
+        "ts-jest": "^27.0.3",
+        "ts-node": "^10.1.0",
+        "validate-commit-msg": "2.14.0"
+    }
 }

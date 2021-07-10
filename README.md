@@ -10,56 +10,42 @@ Quick Start:
 ### Clone, cd and Install
 
 ```bash
-$ git clone https://github.com/acamica/typescript-node-starter.git myapp
+$ git clone https://github.com/hrajchert/typescript-node-starter.git myapp
 $ cd myapp
 # Install and follow the questions.
 $ npm install
 ```
 ℹ️ Remember to replace `myapp` with your application name
 
-ℹ️ You can use yarn or npm.
-
 ### Edit and Run
 Write your program using `src/index.ts` as the entry point, and run it.
 
 ```bash
-$ npm run start
+$ npm run dev
 ```
 
 Features
 --------
 * 🛡 TypeScript configuration
-* 🛡 Unit testing and tdd/bdd workflow
+* 🛡 Unit testing and tdd workflow
 * ☁️ Homogeneous environment using [Docker](https://www.docker.com/) 🐳
-* 👮 TSlint before commit
 * 👮 Git [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog/blob/v0.5.3/conventions/angular.md) messages validation
 * 🔐 Reliable package management using package.locks
 * 🎉 Visual Studio Code goodies
 * 📝 [Editor config](http://editorconfig.org/) for editors that supports it
 
 ### 🛡 TypeScript Configuration
-The project comes with TypeScript v2.3 already configured. You can see and tweak the compiler options with the [tsconfig.json](https://www.typescriptlang.org/docs/handbook/compiler-options.html) file.
+The project comes with TypeScript v4.3 already configured. You can see and tweak the compiler options with the [tsconfig.json](https://www.typescriptlang.org/docs/handbook/compiler-options.html) file.
 
-By default, the [strict master option](https://github.com/Microsoft/TypeScript/pull/14486) and `noUnusedLocals` are enabled, if you are new to typescript you may want to lay back on the strictness by disabling it, and as you get more accustomed you can enable it again.
-
-👮 Your files should follow the conventions set in `tslint.json` in order to make a `git commit`.
+By default, the [strict master option](https://github.com/Microsoft/TypeScript/pull/14486) option is enabled. If you are new to typescript you may want to lay back on the strictness by disabling it.
 
 ### 🛡 Unit Testing & TDD
 
 Both your code and your test files are in TypeScript. This way if a test fails it's easier to see if its due to a change in the contract or an actual bug.
 
-The project comes with these tools already configured:
-
-* [Mocha](https://mochajs.org/): is the test framework that knows how to run your tests.
-* [Chai](http://chaijs.com/api/): is an assertion library with different flavours of API.
-* [Sinon](http://sinonjs.org/): is a library that helps `spying` on functions to see if they where called and how, and creating mocks and stubs for simulating API's.
+The project is tested using [Jest.js](https://jestjs.io/docs/using-matchers).
 
 👮 All the test need to pass in order to make a `git push`.
-
-#### Why mocha + chai + sinon:
-* ✅ It's been proven over and over / Well known in the community.
-* ✅ Decoupled test runner from the assertion and or mock library.
-* 🚫 By default it runs all the test sequentially (so it may be slower than others)
 
 #### How to Use:
 
@@ -78,25 +64,6 @@ Or you can enter in a `Test Driven Development` mode, so whenever you change a f
 ```bash
 $ npm run tdd
 ```
-
-🌟 You can install a terminal notifier to receive growl messages with the test execution results.
-
-```bash
-# How to install growl messages on your platform
-# Mac OS X (Darwin):
-$ sudo gem install terminal-notifier
-
-# Ubuntu (Linux):
-$ sudo apt-get install libnotify-bin
-```
-
-#### How to Remove:
-
-```bash
-$ npm remove -D mocha @types/mocha chai @types/chai sinon
-```
-
-In the `package.json` remove the scripts "test", "watch:test" and "tdd" and if no other script uses it, remove `npm-run-all` as a dependency.
 
 ### 🐳 Docker
 
@@ -135,6 +102,7 @@ If you are using [Visual Studio Code](https://code.visualstudio.com/) you have s
 
 TODO:
 -----
+* Remove tsns and change it for npx
 * Add package deps upgrade tool
 * Add automatic Changelog
 * Add automatic semver
